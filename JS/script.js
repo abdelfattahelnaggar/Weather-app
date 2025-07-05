@@ -7,21 +7,23 @@ const API_KEY = "403cddb4702a43bfbb6203446250407";
 
 // get weather data for a specific city
 function getWeatherData(city) {
-  const apiUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(
-    `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=3`
-  )}`;
+  const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
+  const weatherApiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=3`;
+  const apiUrl = `${proxyUrl}${weatherApiUrl}`;
 
   fetch(apiUrl)
-    .then((res) => res.json())
-    .then((proxyData) => {
-      // Parse the actual weather data from the proxy response
-      const data = JSON.parse(proxyData.contents);
-
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
       if (data.error) {
         Swal.fire({
           icon: "error",
           title: "City Not Found!",
-          text: "Please check the city name and try again.",
+          text: `Could not find weather for "${city}". Please check the spelling and try again.`,
           confirmButtonColor: "#007bff",
         });
         return;
@@ -33,7 +35,7 @@ function getWeatherData(city) {
       Swal.fire({
         icon: "error",
         title: "Connection Error!",
-        text: "Unable to fetch weather data. Please check your internet connection and try again.",
+        text: "Unable to fetch weather data. This may be due to a network issue or the CORS proxy. Please try again later.",
         confirmButtonColor: "#007bff",
       });
     });
