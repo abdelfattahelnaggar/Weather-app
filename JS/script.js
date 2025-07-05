@@ -7,7 +7,7 @@ const API_KEY = "403cddb4702a43bfbb6203446250407";
 
 // get weather data for a specific city
 function getWeatherData(city) {
-  const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=3`;
+  const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=3`;
 
   fetch(apiUrl)
     .then((res) => res.json())
