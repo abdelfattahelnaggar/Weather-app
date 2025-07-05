@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <!-- link to sweetalert2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.0/dist/sweetalert2.min.css"
+    />
+    <!-- link to font awesome -->
+    <link rel="stylesheet" href="./CSS/all.min.css" />
+    <!-- link to bootstrap -->
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css" />
+    <!-- link to custom css -->
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+    <!--!========================= Navbar Section =========================-->
+    <nav class="navbar navbar-expand-lg py-3 shadow bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Weather</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Live Cameras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Photos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--!========================= Hero Section =========================-->
+    <section class="hero container p-4 my-3">
+      <!--todo------- Search --------->
+      <div class="input-group search mb-3">
+        <input
+          type="search"
+          class="form-control search-input"
+          placeholder="Find Your Location"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <button
+          class="btn btn-outline-success search-btn"
+          type="button"
+          id="button-addon2"
+          data-mdb-ripple-init
+          data-mdb-ripple-color="dark"
+        >
+          Search
+        </button>
+      </div>
+      <!--todo------- Location --------->
+      <div class="location-section text-center mb-5">
+        <div
+          class="d-flex align-items-center justify-content-center gap-3 mb-2"
+        >
+          <i class="fa-solid fa-location-dot text-danger fs-2"></i>
+          <h2 class="location-title mb-0 display-5 fw-bold text-dark location-name">Cairo</h2>
+        </div>
+        <p class="text-muted fs-6">Current weather conditions</p>
+      <!--todo------- Temperature cards --------->
+      <div class="tempCards my-5 row">
+        <!--?~~~~~~ Today temperature card ~~~~~~-->
+        <div
+          class="today text-center text-white position-relative py-4 rounded bg-secondary col-11 m-auto col-md-4"
+        >
+          <!--! Card Header -->
+          <div
+            class="head d-flex justify-content-between rounded-top p-2 bg-dark position-absolute top-0 end-0 start-0"
+          >
+            <span class="day">Saturday</span>
+            <span class="date ms-auto">5 July</span>
+          </div>
+          <!--! Card body -->
+          <div class="cardBody my-5">
+            <i class="fa-solid fa-cloud-sun fa-3x"></i>
+            <h1 class="temp display-1 fw-bold">30°</h1>
+            <p class="description fw-bold text-info fs-4">Sunny</p>
+          </div>
+          <!--! Card footer -->
+          <div class="cardFooter d-flex justify-content-center gap-3">
+            <div class="humidity">
+              <i class="fa-solid fa-umbrella"></i>
+              <span class="humidity"> 60%</span>
+            </div>
+            <div class="windSpeed">
+              <i class="fa-solid fa-wind"></i>
+              <span class="windSpeed"> 10 km/h</span>
+            </div>
+            <div class="windDir">
+              <i class="fa-solid fa-location-arrow"></i>
+              <span class="windDir"> NW</span>
+            </div>
+          </div>
+        </div>
+        <!--?~~~~~~ Tomorrow temperature card ~~~~~~-->
+        <div
+          class="tomorrow text-center text-white position-relative py-4 rounded bg-dark col-11 m-auto col-md-4"
+        >
+          <!--! Card Header -->
+          <div
+            class="head d-flex justify-content-between rounded-top p-2 bg-secondary position-absolute top-0 end-0 start-0"
+          >
+            <span class="day">Saturday</span>
+            <span class="date ms-auto">5 July</span>
+          </div>
+          <!--! Card body -->
+          <div class="cardBody my-5">
+            <i class="fa-solid fa-cloud-sun fa-3x"></i>
+            <h1 class="temp display-1 fw-bold">30°</h1>
+            <p class="description fw-bold text-info fs-4">Sunny</p>
+          </div>
+          <!--! Card footer -->
+          <div class="cardFooter d-flex justify-content-center gap-3">
+            <div class="humidity">
+              <i class="fa-solid fa-umbrella"></i>
+              <span class="humidity"> 60%</span>
+            </div>
+            <div class="windSpeed">
+              <i class="fa-solid fa-wind"></i>
+              <span class="windSpeed"> 10 km/h</span>
+            </div>
+            <div class="windDir">
+              <i class="fa-solid fa-location-arrow"></i>
+              <span class="windDir"> NW</span>
+            </div>
+          </div>
+        </div>
+        <!--?~~~~~~ After tomorrow temperature card ~~~~~~-->
+        <div
+          class="afterTomorrow text-center text-white position-relative py-4 rounded bg-secondary col-11 m-auto col-md-4"
+        >
+          <!--! Card Header -->
+          <div
+            class="head d-flex justify-content-between rounded-top p-2 bg-dark position-absolute top-0 end-0 start-0"
+          >
+            <span class="day">Saturday</span>
+            <span class="date ms-auto">5 July</span>
+          </div>
+          <!--! Card body -->
+          <div class="cardBody my-5">
+            <i class="fa-solid fa-cloud-sun fa-3x"></i>
+            <h1 class="temp display-1 fw-bold">30°</h1>
+            <p class="description fw-bold text-info fs-4">Sunny</p>
+          </div>
+          <!--! Card footer -->
+          <div class="cardFooter d-flex justify-content-center gap-3">
+            <div class="humidity">
+              <i class="fa-solid fa-umbrella"></i>
+              <span class="humidity"> 60%</span>
+            </div>
+            <div class="windSpeed">
+              <i class="fa-solid fa-wind"></i>
+              <span class="windSpeed"> 10 km/h</span>
+            </div>
+            <div class="windDir">
+              <i class="fa-solid fa-location-arrow"></i>
+              <span class="windDir"> NW</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- link to sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.22.0/dist/sweetalert2.all.min.js"></script>
+    <!-- link to bootstrap -->
+    <script src="./JS/bootstrap.bundle.min.js"></script>
+    <!-- link to custom js -->
+    <script src="./JS/script.js"></script>
+  </body>
+</html>
